@@ -1,0 +1,13 @@
+{
+  "name": "list",
+  "version": "1.0.0",
+  "description": "lazy lists in javascript",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Paul Stanford",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "private": true
+}
