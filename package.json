@@ -7,7 +7,12 @@
   },
   "author": "Paul Stanford",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {},
+  "private": true,
+  "devDependencies": {
+    "jest": "^23.6.0"
   },
-  "private": true
+  "scripts": {
+    "test": "jest"
+  }
 }

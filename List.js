@@ -163,3 +163,5 @@ console.log(List.range(0, 100, 1).drop(90).reduce((a, b) => {
   slo(30)
   return a + b
 }, 0))
+
+module.exports = List
