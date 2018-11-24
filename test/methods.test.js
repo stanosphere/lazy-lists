@@ -35,3 +35,21 @@ describe('map', () => {
     )
   })
 })
+
+describe('take', () => {
+  it('should work for an array of integers', () => {
+    assert.deepStrictEqual(
+      List.range(0, 20).take(2).toArray,
+      range(0, 2)
+    )
+  })
+})
+
+describe('drop', () => {
+  it('should work for an array of integers', () => {
+    assert.deepStrictEqual(
+      List.range(0, 20).drop(2).toArray,
+      range(2, 20)
+    )
+  })
+})
