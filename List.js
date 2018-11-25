@@ -1,4 +1,5 @@
 // https://gist.github.com/gvergnaud/6e9de8e06ef65e65f18dbd05523c7ca9
+const { isPrime } = require('./utils')
 
 class List {
   constructor(generator) {
@@ -26,6 +27,21 @@ class List {
   // empty :: List
   static get empty() {
     return new List(function*() {})
+  }
+
+  // primes :: Number -> List
+  static primes(n) {
+    return new List(function*() {
+      const primes = []
+      let i = 2
+      while (primes.length < n) {
+        if (isPrime(primes)(i)) {
+          primes.push(i)
+          yield i
+        }
+        i++
+      }
+    })
   }
 
   concat(iterable) {

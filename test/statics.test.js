@@ -35,3 +35,33 @@ describe('empty', () => {
     assert.deepStrictEqual(List.empty.toArray, [])
   })
 })
+
+describe('primes', () => {
+  it('should give me the first prime number', () => {
+    assert.deepStrictEqual(List.primes(1).toArray, [2])
+  })
+  it('should give me the first few prime numbers', () => {
+    assert.deepStrictEqual(List.primes(20).toArray, [
+      2,
+      3,
+      5,
+      7,
+      11,
+      13,
+      17,
+      19,
+      23,
+      29,
+      31,
+      37,
+      41,
+      43,
+      47,
+      53,
+      59,
+      61,
+      67,
+      71,
+    ])
+  })
+})
