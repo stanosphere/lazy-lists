@@ -7,14 +7,15 @@ class List {
   }
 
   // fromArray :: Array a -> List a
-  static fromArray = iterable =>
-    new List(function*() {
+  static fromArray(iterable) {
+    return new List(function* () {
       yield* iterable
     })
+  }
 
   // range :: (Number, Number, Number) -> List Number
   static range(start, end, step = 1) {
-    return new List(function*() {
+    return new List(function* () {
       let i = start
       while (i <= end) {
         yield i
@@ -25,12 +26,12 @@ class List {
 
   // empty :: List
   static get empty() {
-    return new List(function*() {})
+    return new List(function* () {})
   }
 
   // primes :: Number -> List
   static primes(n) {
-    return new List(function*() {
+    return new List(function* () {
       const primes = []
       let i = 2
       while (primes.length < n) {
@@ -45,7 +46,7 @@ class List {
 
   concat(iterable) {
     const generator = this[Symbol.iterator]
-    return new List(function*() {
+    return new List(function* () {
       yield* generator()
       yield* iterable
     })
@@ -54,7 +55,7 @@ class List {
   // filter (a -> Boolean) -> List a
   filter(predicate) {
     const generator = this[Symbol.iterator]
-    return new List(function*() {
+    return new List(function* () {
       for (const value of generator()) {
         if (predicate(value)) yield value
       }
@@ -64,7 +65,7 @@ class List {
   // I think a scan is like a reduce but returns an array of accumulants
   scan(scanner, seed) {
     const generator = this[Symbol.iterator]
-    return new List(function*() {
+    return new List(function* () {
       let acc = seed
       for (const value of generator()) {
         yield (acc = scanner(acc, value))
@@ -75,7 +76,7 @@ class List {
   // map :: (a -> b) -> List b
   map(mapper) {
     const generator = this[Symbol.iterator]
-    return new List(function*() {
+    return new List(function* () {
       for (const value of generator()) {
         yield mapper(value)
       }
@@ -94,7 +95,7 @@ class List {
 
   ap(list) {
     const generator = this[Symbol.iterator]
-    return new List(function*() {
+    return new List(function* () {
       for (const f of generator()) {
         yield* list.map(f)
       }
@@ -104,7 +105,7 @@ class List {
   // take :: Number -> List a
   take(n) {
     const generator = this[Symbol.iterator]
-    return new List(function*() {
+    return new List(function* () {
       let i = 0
       for (const value of generator()) {
         if (i <= n) {
@@ -120,7 +121,7 @@ class List {
   // drop :: Number -> List a
   drop(n) {
     const generator = this[Symbol.iterator]
-    return new List(function*() {
+    return new List(function* () {
       let i = 0
       for (const value of generator()) {
         if (i < n) {
@@ -137,7 +138,7 @@ class List {
   zipWith(lazyList, zipper) {
     const generator1 = this[Symbol.iterator]
     const generator2 = lazyList[Symbol.iterator]
-    return new List(function*() {
+    return new List(function* () {
       const iterator1 = generator1()
       const iterator2 = generator2()
       let next1 = iterator1.next()

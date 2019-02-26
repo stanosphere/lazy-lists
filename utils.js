@@ -1,7 +1,8 @@
-const isPrime = listOfprimes => candidate => {
+const isPrime = listOfprimes => (candidate) => {
   if (candidate === 1) return false
-  for (let i = 0; i <= listOfprimes.length; i++)
+  for (let i = 0; i <= listOfprimes.length; i += 1) {
     if (candidate % listOfprimes[i] === 0) return false
+  }
   return true
 }
 
