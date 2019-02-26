@@ -168,15 +168,4 @@ class List {
   }
 }
 
-// const slo = x => {
-//   console.log("_")
-//   const _ = y => y < 2 ? 1 : _(y - 1) + _(y - 2)
-//   return _(x)
-// }
-
-// console.log(List.range(0, 100, 1).drop(90).reduce((a, b) => {
-//   slo(30)
-//   return a + b
-// }, 0))
-
 module.exports = List
