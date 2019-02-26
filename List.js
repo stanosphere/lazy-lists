@@ -7,11 +7,10 @@ class List {
   }
 
   // fromArray :: Array a -> List a
-  static fromArray(iterable) {
-    return new List(function*() {
+  static fromArray = iterable =>
+    new List(function*() {
       yield* iterable
     })
-  }
 
   // range :: (Number, Number, Number) -> List Number
   static range(start, end, step = 1) {
